@@ -3,11 +3,11 @@ package com.pkrasnov.BluetoothMessenger;
 import java.io.InputStream;
 
 class ListenSocketThread extends Thread {
-    private BluetoothMessenger bluetoothMessenger;
+    private BluetoothMessengerServer bluetoothMessengerServer;
     private InputStream inputStream;
 
-    ListenSocketThread(BluetoothMessenger messenger, InputStream inputStream) {
-        this.bluetoothMessenger = messenger;
+    ListenSocketThread(BluetoothMessengerServer messenger, InputStream inputStream) {
+        this.bluetoothMessengerServer = messenger;
         this.inputStream = inputStream;
     }
 
@@ -17,9 +17,9 @@ class ListenSocketThread extends Thread {
                 byte[] c = new byte[2048];
                 int size = inputStream.read(c);
                 String s = new String(c, 0, size);
-                bluetoothMessenger.MessageReceived(s);
+                bluetoothMessengerServer.MessageReceived(s);
             } catch (Exception e) {
-                bluetoothMessenger.ConnectionClosed();
+                bluetoothMessengerServer.ConnectionClosed();
                 return;
             }
         }

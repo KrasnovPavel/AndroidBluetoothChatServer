@@ -11,7 +11,7 @@ import java.util.UUID;
  * ВНИМАНИЕ: Использование не-ASCII символов не поддерживается.
  * Пример использования: https://github.com/KrasnovPavel/AndroidBluetoothChatServer
  */
-public abstract class BluetoothMessenger {
+public abstract class BluetoothMessengerServer {
     private OutputStream outputStream;
     private BluetoothFindThread bluetoothFindThread;
 
@@ -25,7 +25,7 @@ public abstract class BluetoothMessenger {
      * например если Bluetooth выключен.
      * @throws IOException
      */
-    public BluetoothMessenger () throws IOException {
+    public BluetoothMessengerServer() throws IOException {
         bluetoothFindThread = new BluetoothFindThread(this, uuid);
     }
 

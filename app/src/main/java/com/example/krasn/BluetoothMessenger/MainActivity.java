@@ -8,12 +8,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.pkrasnov.BluetoothMessenger.BluetoothMessenger;
+import com.pkrasnov.BluetoothMessenger.BluetoothMessengerServer;
 
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
-    private class MABluetoothMessenger extends BluetoothMessenger {
+    private class MABluetoothMessenger extends BluetoothMessengerServer {
         MABluetoothMessenger() throws IOException {
             super();
         }
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText outputTextEdit;
     private TextView inputTextView;
-    BluetoothMessenger messenger;
+    BluetoothMessengerServer messenger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

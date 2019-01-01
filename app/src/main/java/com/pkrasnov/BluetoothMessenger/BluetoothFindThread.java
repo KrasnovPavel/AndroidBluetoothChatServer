@@ -13,10 +13,10 @@ import static android.content.ContentValues.TAG;
 class BluetoothFindThread extends Thread {
     private BluetoothServerSocket mmServerSocket;
     private final String name = BluetoothAdapter.getDefaultAdapter().getName();
-    private BluetoothMessenger bluetoothMessenger;
+    private BluetoothMessengerServer bluetoothMessengerServer;
 
-    BluetoothFindThread(BluetoothMessenger messenger, UUID uuid) throws IOException {
-        this.bluetoothMessenger = messenger;
+    BluetoothFindThread(BluetoothMessengerServer messenger, UUID uuid) throws IOException {
+        this.bluetoothMessengerServer = messenger;
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
         mmServerSocket = mBluetoothAdapter.listenUsingRfcommWithServiceRecord(name, uuid);
     }
@@ -27,7 +27,7 @@ class BluetoothFindThread extends Thread {
             try {
                 BluetoothSocket socket = mmServerSocket.accept();
                 if (socket != null) {
-                    bluetoothMessenger.ClientConnected(socket);
+                    bluetoothMessengerServer.ClientConnected(socket);
                     break;
                 }
             } catch (IOException e) {
