@@ -9,6 +9,7 @@ import java.util.UUID;
 /**
  * Класс, реализующий обмен сообщениями по bluetooth.
  * ВНИМАНИЕ: Использование не-ASCII символов не поддерживается.
+ * Пример использования: https://github.com/KrasnovPavel/AndroidBluetoothChatServer
  */
 public abstract class BluetoothMessenger {
     private OutputStream outputStream;
