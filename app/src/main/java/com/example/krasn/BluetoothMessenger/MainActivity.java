@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void ConnectionClosed() {
+            super.ConnectionClosed();
             inputTextView.append("Connection closed");
         }
 
